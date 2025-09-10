@@ -39,7 +39,7 @@ const App: React.FC = () => {
   const zoom = useRef(1);
   const isDragging = useRef(false);
   const lastDragPos = useRef({ x: 0, y: 0 });
-  // FIX: The `useRef` hook requires an initial value. Initializing with `undefined` to fix the error.
+  // Initialize useRef with undefined to fix TypeScript error
   const animationFrameId = useRef<number | undefined>(undefined);
 
   const drawMap = useCallback(() => {
