@@ -1,0 +1,5 @@
+{
+  "name": "Procedural City Generator",
+  "description": "Generates and displays procedural city maps using a seed.",
+  "requestFramePermissions": []
+}
