@@ -39,8 +39,7 @@ const App: React.FC = () => {
   const zoom = useRef(1);
   const isDragging = useRef(false);
   const lastDragPos = useRef({ x: 0, y: 0 });
-  // FIX: The `useRef` hook requires an initial value. Initializing with `undefined` to fix the error.
-  const animationFrameId = useRef<number | undefined>(undefined);
+  const animationFrameId = useRef<number | null>(null);
 
   const drawMap = useCallback(() => {
     const canvas = canvasRef.current;
@@ -77,6 +76,7 @@ const App: React.FC = () => {
         if (window.CityGenReady) {
           const mapgen = window.require('game_modules/mapgen');
           const data: MapData = mapgen.generate(currentSeed || Date.now().toString());
+          console.log('Generated map data:', data);
           setMapData(data);
         } else {
           console.error('CityGen script not ready.');
